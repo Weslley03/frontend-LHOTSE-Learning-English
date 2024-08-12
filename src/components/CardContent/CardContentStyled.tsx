@@ -13,6 +13,11 @@ export const Container = styled.div`
   margin: auto;
   margin-bottom: 8px;
   padding: 1rem;
+
+  .botoes{
+    display: flex;  
+    gap: 1rem;
+  }
 `;
 
 export const DivTituloContent = styled.div`
