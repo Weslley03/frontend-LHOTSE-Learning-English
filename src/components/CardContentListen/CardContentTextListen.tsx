@@ -6,6 +6,7 @@ import {
   TextAreaContent,
 } from "../CardContent/CardContentStyled";
 import React, { useRef, useEffect } from "react";
+import { ButtonTrain } from "../buttonTrain/ButtonTrainStyled";
 
 type CardContentProps = {
   tituloText: string;
@@ -17,6 +18,8 @@ const CardContentTextListen: React.FC<CardContentProps> = ({
   textAreaValue,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const textListen: any = localStorage.getItem("textListen");
 
   useEffect(() => {
     const textarea: any = textareaRef.current;
@@ -33,7 +36,24 @@ const CardContentTextListen: React.FC<CardContentProps> = ({
     };
   }, []);
 
-  const textListen: any = localStorage.getItem("textListen");
+  function pauseAudio() {
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  }
+
+  function playAudio() {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }
+
+  function resetAudio() {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  }
 
   async function textToSpeach() {
     try {
@@ -45,9 +65,10 @@ const CardContentTextListen: React.FC<CardContentProps> = ({
       );
       const audioBlob = new Blob([response.data], { type: "audio/mpeg" });
       const audioUrl = URL.createObjectURL(audioBlob);
+      localStorage.setItem("audioUrl", audioUrl);
 
-      const audio = new Audio(audioUrl);
-      audio.play();
+      audioRef.current = new Audio(audioUrl);
+      audioRef.current.play();
     } catch (err) {
       console.log("deu erro", err);
     }
@@ -64,6 +85,11 @@ const CardContentTextListen: React.FC<CardContentProps> = ({
         ref={textareaRef}
         defaultValue={textAreaValue}
       />
+      <div className="botoes">
+        <ButtonTrain onClick={pauseAudio}>pause</ButtonTrain>
+        <ButtonTrain onClick={playAudio}>tocar novamente</ButtonTrain>
+        <ButtonTrain onClick={resetAudio}>reset</ButtonTrain>
+      </div>
     </Container>
   );
 };

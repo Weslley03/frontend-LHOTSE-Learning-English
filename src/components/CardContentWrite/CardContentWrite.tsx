@@ -9,11 +9,13 @@ import React, { useRef, useEffect } from "react";
 type CardContentProps = {
   tituloText: string;
   textAreaValue: string;
+  onTextChange: (value: string) => void;
 };
 
 const CardContentWrite: React.FC<CardContentProps> = ({
   tituloText,
   textAreaValue,
+  onTextChange,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -23,6 +25,7 @@ const CardContentWrite: React.FC<CardContentProps> = ({
     const handleInput = () => {
       textarea.style.height = "auto";
       textarea.style.height = textarea.scrollHeight + "px";
+      onTextChange(textarea.value);
     };
 
     textarea.addEventListener("input", handleInput);
@@ -30,7 +33,7 @@ const CardContentWrite: React.FC<CardContentProps> = ({
     return () => {
       textarea.removeEventListener("input", handleInput);
     };
-  }, []);
+  }, [onTextChange]);
 
   return (
     <Container>
@@ -38,7 +41,6 @@ const CardContentWrite: React.FC<CardContentProps> = ({
         <TituloContent> {tituloText} </TituloContent>
       </DivTituloContent>
       <TextAreaContent
-        readOnly
         ref={textareaRef}
         defaultValue={textAreaValue}
       />
