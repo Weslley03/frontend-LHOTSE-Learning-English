@@ -31,5 +31,6 @@ desempenho: Implementar técnicas de otimização, como memorização e lazy loa
 
 escalabilidade da equipe: Dividir as responsabilidades de acordo com as especializações dos desenvolvedores.	
 
-![image](https://github.com/user-attachments/assets/2715bff5-4cdc-4105-a518-16649241a2e6)
+![image](https://github.com/user-attachments/assets/4e94f8f1-fbd3-4e15-b0e6-237a5b711636)
+
 
