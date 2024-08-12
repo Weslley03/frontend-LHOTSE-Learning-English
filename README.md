@@ -30,3 +30,6 @@ arquitetura: Utilizar gerenciamento de estado global (por exemplo, Redux) para l
 desempenho: Implementar técnicas de otimização, como memorização e lazy loading, para melhorar o desempenho, monitorar e otimizar a responsividade da aplicação.
 
 escalabilidade da equipe: Dividir as responsabilidades de acordo com as especializações dos desenvolvedores.	
+
+![image](https://github.com/user-attachments/assets/2715bff5-4cdc-4105-a518-16649241a2e6)
+
