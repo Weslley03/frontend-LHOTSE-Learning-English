@@ -10,7 +10,7 @@ function TrainYourListening() {
   const textTrainListening: string = "escute seu texto";
 
   function obfuscateText(text: string): string {
-    return text.replace(/\S/g, "_"); // Replace each non-space character with an underscore
+    return text.replace(/\S/g, "_"); 
   }
 
   function revealText(originalText: string, typedText: string): string {
@@ -19,7 +19,7 @@ function TrainYourListening() {
       if (typedText[i] === originalText[i]) {
         revealedText += originalText[i];
       } else {
-        revealedText += "_"; // or use any other character to hide the text
+        revealedText += "_"; 
       }
     }
     return revealedText;

@@ -87,7 +87,7 @@ const CardContentTextListen: React.FC<CardContentProps> = ({
       />
       <div className="botoes">
         <ButtonTrain onClick={pauseAudio}>pause</ButtonTrain>
-        <ButtonTrain onClick={playAudio}>tocar novamente</ButtonTrain>
+        <ButtonTrain onClick={playAudio}>play</ButtonTrain>
         <ButtonTrain onClick={resetAudio}>reset</ButtonTrain>
       </div>
     </Container>
